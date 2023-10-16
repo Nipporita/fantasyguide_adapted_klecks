@@ -8,7 +8,7 @@ export function showIframeModal (
 ) {
 
     // window very small, modal might look bad
-    if (!isEmbed && (window.innerHeight < 500 || window.innerWidth < 700)) {
+    if (!isEmbed && ((window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160) < 500 || window.innerWidth < 700)) {
         window.open(url);
         return;
     }

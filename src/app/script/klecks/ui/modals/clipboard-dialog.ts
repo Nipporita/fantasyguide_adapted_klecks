@@ -19,7 +19,7 @@ export function clipboardDialog (
     } catch (e) { /* empty */ }
 
     const div = document.createElement('div');
-    const isSmall = window.innerWidth < 550 || window.innerHeight < 550;
+    const isSmall = window.innerWidth < 550 || (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160) < 550;
 
     const topWrapper = BB.el({
         content: LANG('crop-drag-to-crop') + (clipboardItemIsSupported ? '' : '<br>' + LANG('cropcopy-click-hold')),

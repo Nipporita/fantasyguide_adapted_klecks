@@ -168,7 +168,7 @@ export class KlApp {
         if (!this.bottomBar) {
             return;
         }
-        const isVisible = (this.toolspaceInner.scrollHeight + 40 < window.innerHeight);
+        const isVisible = (this.toolspaceInner.scrollHeight + 40 < (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160));
         this.bottomBarWrapper.style.display = isVisible ? '' : 'none';
     }
 
@@ -221,7 +221,7 @@ export class KlApp {
             },
         });
         this.uiWidth = Math.max(0, window.innerWidth);
-        this.uiHeight = Math.max(0, window.innerHeight);
+        this.uiHeight = Math.max(0, (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160));
         let exportType: TExportType = 'png';
         this.klCanvas = new KL.KlCanvas(
             pProject ? {
@@ -1591,10 +1591,10 @@ export class KlApp {
 
         {
             window.addEventListener('resize', () => {
-                this.resize(window.innerWidth, window.innerHeight);
+                this.resize(window.innerWidth, (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160));
             });
             window.addEventListener('orientationchange', () => {
-                this.resize(window.innerWidth, window.innerHeight);
+                this.resize(window.innerWidth, (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160));
             });
 
             // iPad doesn't trigger 'resize' event when using text zoom, although it's resizing the window.
@@ -1614,7 +1614,7 @@ export class KlApp {
             });
             try {
                 // Not all browsers support ResizeObserver. Not critical though.
-                const observer = new ResizeObserver(() => this.resize(window.innerWidth, window.innerHeight));
+                const observer = new ResizeObserver(() => this.resize(window.innerWidth, (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160)));
                 observer.observe(windowResizeWatcher);
             } catch (e) {
                 windowResizeWatcher.remove();

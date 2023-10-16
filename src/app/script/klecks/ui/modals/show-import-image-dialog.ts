@@ -35,7 +35,7 @@ export function showImportImageDialog (
     }
 ): void {
     const rootEl = BB.el();
-    const isSmall = window.innerWidth < 550 || window.innerHeight < 550;
+    const isSmall = window.innerWidth < 550 || (window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160) < 550;
     const style: IKeyString = isSmall ? {} : { width: '500px' };
 
     const resolutionEl = BB.el({

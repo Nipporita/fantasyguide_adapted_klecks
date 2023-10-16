@@ -90,7 +90,7 @@ export class DynamicModal {
 
             BB.css(popupEl, {
                 left: Math.max(0, (window.innerWidth - elW) / 2) + 'px',
-                top: Math.max(20, (window.innerHeight - elH) / 2 - (elH * 0.20)) + 'px',
+                top: Math.max(20, ((window.innerWidth <= 786 ? window.innerHeight - 107.5 : window.innerHeight - 160) - elH) / 2 - (elH * 0.20)) + 'px',
             });
         };
 
